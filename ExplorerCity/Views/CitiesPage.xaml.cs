@@ -9,10 +9,7 @@ namespace ExplorerCity
 	{
 		public CitiesPage()
 		{
-			
 			InitializeComponent();
-
-
 		}
 	}
 }
