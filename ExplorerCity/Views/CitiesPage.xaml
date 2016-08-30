@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" 
+		x:Class="ExplorerCity.CitiesPage">
+	<ContentPage.Content>
+		<ListView x:Name="lst" ItemsSource="{Binding Cities}" HasUnevenRows="true" RowHeight="300">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+					    <ViewCell.View>
+							<Grid HeightRequest="300">
+								<Grid.RowDefinitions>
+								 <RowDefinition Height="Auto"/>
+							     <RowDefinition Height="*"/>
+								</Grid.RowDefinitions>
+								
+
+								
+								<cv:CarouselView x:Name="CarouselZoos" ItemsSource="{Binding Photos}" HeightRequest="300" Margin="0" VerticalOptions="Start" Grid.Row="0" Grid.RowSpan="2">
+							      <cv:CarouselView.ItemTemplate>
+							        <DataTemplate>
+							          <Grid>
+							            <Grid.RowDefinitions>
+							              <RowDefinition Height="*"/>
+							              <RowDefinition Height="Auto"/>
+							            </Grid.RowDefinitions>
+							            <Image Grid.RowSpan="2" Aspect="AspectFill" Source="{Binding ImageUrl}"/>
+							            <StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">
+							              <Label TextColor="White" Text="{Binding Description}" FontSize="16" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+							            </StackLayout>
+							          </Grid>
+							        </DataTemplate>
+							      </cv:CarouselView.ItemTemplate>
+								</cv:CarouselView>
+
+								<StackLayout BackgroundColor="#99000000" Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Grid.Row="0">
+								<Label Text="{Binding Name}" TextColor="#ffffff" VerticalOptions="Center" HorizontalOptions="Center"/>
+								</StackLayout>
+							</Grid>
+
+								
+
+							
+					    </ViewCell.View>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</ContentPage.Content>
+</ContentPage>
